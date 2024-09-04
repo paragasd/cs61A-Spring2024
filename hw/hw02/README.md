@@ -1,21 +1,22 @@
- Homework 2: Higher-Order Functions
+# Homework 2: Higher-Order Functions
 hw02.zip
 Due by 11:59pm on Thursday, February 1
 
-Instructions
+## Instructions
 Download hw02.zip. Inside the archive, you will find a file called hw02.py, along with a copy of the ok autograder.
 
-Submission: When you are done, submit the assignment by uploading all code files you've edited to Gradescope. You may submit more than once before the deadline; only the final submission will be scored. Check that you have successfully submitted your code on Gradescope. See Lab 0 for more instructions on submitting assignments.
+**Submission**: When you are done, submit the assignment by uploading all code files you've edited to Gradescope. You may submit more than once before the deadline; only the final submission will be scored. Check that you have successfully submitted your code on Gradescope. See Lab 0 for more instructions on submitting assignments.
 
-Using Ok: If you have any questions about using Ok, please refer to this guide.
+**Using Ok**: If you have any questions about using Ok, please refer to this guide.
 
-Readings: You might find the following references useful:
+**Readings**: You might find the following references useful:
 
-Section 1.6
-Grading: Homework is graded based on correctness. Each incorrect problem will decrease the total score by one point. This homework is out of 2 points.
+### Section 1.6
+**Grading**: Homework is graded based on correctness. Each incorrect problem will decrease the total score by one point. This homework is out of 2 points.
 
-Required Questions
-Getting Started Videos
+## Required Questions
+
+### Getting Started Videos
 These videos may provide some helpful direction for tackling the coding problems on this assignment.
 
 To see these videos, you should be logged into your berkeley.edu email.
@@ -23,7 +24,7 @@ To see these videos, you should be logged into your berkeley.edu email.
 YouTube link
 
 Several doctests refer to these functions:
-
+```
 from operator import add, mul
 
 square = lambda x: x * x
@@ -33,11 +34,12 @@ identity = lambda x: x
 triple = lambda x: 3 * x
 
 increment = lambda x: x + 1
+```
 
-Higher-Order Functions
-Q1: Product
-Write a function called product that returns the product of the first n terms of a sequence. Specifically, product takes in an integer n and term, a single-argument function that determines a sequence. (That is, term(i) gives the ith term of the sequence.) product(n, term) should return term(1) * ... * term(n).
-
+### Higher-Order Functions
+#### Q1: Product
+Write a function called product that returns the product of the first n terms of a sequence. Specifically, product takes in an integer n and term, a single-argument function that determines a sequence. (That is, `term(i)` gives the ith term of the sequence.) `product(n, term)` should return `term(1) * ... * term(n)`.
+```
 def product(n, term):
     """Return the product of the first n terms in a sequence.
 
@@ -58,15 +60,16 @@ def product(n, term):
     162
     """
     "*** YOUR CODE HERE ***"
-
+```
 
 Use Ok to test your code:
-
+```
 python3 ok -q product
+```
 
-Q2: Accumulate
+#### Q2: Accumulate
 Let's take a look at how product is an instance of a more general function called accumulate, which we would like to implement:
-
+```
 def accumulate(fuse, start, n, term):
     """Return the result of fusing together the first n terms in a sequence 
     and start.  The terms to be fused are term(1), term(2), ..., term(n). 
@@ -87,28 +90,29 @@ def accumulate(fuse, start, n, term):
     19
     """
     "*** YOUR CODE HERE ***"
+```
 
+`accumulate` has the following parameters:
 
-accumulate has the following parameters:
+`fuse`: a two-argument function that specifies how the current term is fused with the previously accumulated terms
+`start`: value at which to start the accumulation
+`n`: a non-negative integer indicating the number of terms to fuse
+`term`: a single-argument function; `term(i)` is the ith term of the sequence
+Implement accumulate, which fuses the first `n` terms of the sequence defined by term with the start value using the fuse function.
 
-fuse: a two-argument function that specifies how the current term is fused with the previously accumulated terms
-start: value at which to start the accumulation
-n: a non-negative integer indicating the number of terms to fuse
-term: a single-argument function; term(i) is the ith term of the sequence
-Implement accumulate, which fuses the first n terms of the sequence defined by term with the start value using the fuse function.
-
-For example, the result of accumulate(add, 11, 3, square) is
-
+For example, the result of `accumulate(add, 11, 3, square)` is
+```
 add(11,  add(square(1), add(square(2),  square(3)))) =
     11 +     square(1) +    square(2) + square(3)    =
     11 +     1         +    4         + 9            = 25
+```
 
-Assume that fuse is commutative, fuse(a, b) == fuse(b, a), and associative, fuse(fuse(a, b), c) == fuse(a, fuse(b, c)).
+Assume that fuse is commutative, `fuse(a, b) == fuse(b, a)`, and associative, `fuse(fuse(a, b), c) == fuse(a, fuse(b, c))`.
 
 Then, implement summation (from lecture) and product as one-line calls to accumulate.
 
 Important: Both summation_using_accumulate and product_using_accumulate should be implemented with a single line of code starting with return.
-
+```
 def summation_using_accumulate(n, term):
     """Returns the sum: term(1) + ... + term(n), using accumulate.
 
@@ -136,17 +140,19 @@ def product_using_accumulate(n, term):
     ['Expr', 'Return']
     """
     return ____
-
+```
 
 Use Ok to test your code:
-
+```
 python3 ok -q accumulate
 python3 ok -q summation_using_accumulate
 python3 ok -q product_using_accumulate
+```
 
-Q3: Make Repeater
-Implement the function make_repeater that takes a one-argument function f and a positive integer n. It returns a one-argument function, where make_repeater(f, n)(x) returns the value of f(f(...f(x)...)) in which f is applied n times to x. For example, make_repeater(square, 3)(5) squares 5 three times and returns 390625, just like square(square(square(5))).
+#### Q3: Make Repeater
+Implement the function make_repeater that takes a one-argument function `f` and a positive integer `n`. It returns a one-argument function, where `make_repeater(f, n)(x)` returns the value of `f(f(...f(x)...))` in which `f` is applied `n` times to `x`. For example, `make_repeater(square, 3)(5)` squares 5 three times and returns `390625`, just like `square(square(square(5)))`.
 
+```
 def make_repeater(f, n):
     """Returns the function that computes the nth application of f.
 
@@ -161,29 +167,31 @@ def make_repeater(f, n):
     390625
     """
     "*** YOUR CODE HERE ***"
-
+```
 
 Use Ok to test your code:
-
+```
 python3 ok -q make_repeater
+```
 
-Check Your Score Locally
+### Check Your Score Locally
 You can locally check your score on each question of this assignment by running
-
+```
 python3 ok --score
+```
 
 This does NOT submit the assignment! When you are satisfied with your score, submit the assignment to Gradescope to receive credit for it.
 
-Submit
+## Submit
 Submit this assignment by uploading any files you've edited to the appropriate Gradescope assignment. Lab 00 has detailed instructions.
 
 In addition, all students who are not in the mega lab must complete this attendance form. Submit this form each week, whether you attend lab or missed it for a good reason. The attendance form is not required for mega section students.
 
-Exam Practice
+## Exam Practice
 Here are some related questions from past exams for you to try. These are optional. There is no way to submit them.
 
 Note that exams from Spring 2020, Fall 2020, and Spring 2021 gave students access to an interpreter, so the question format may be different than other years. Regardless, the questions below are good problems to try without access to an interpreter.
 
-Fall 2019 MT1 Q3: You Again [Higher-Order Functions]
-Spring 2021 MT1 Q4: Domain on the Range [Higher-Order Functions]
-Fall 2021 MT1 Q1b: tik [Functions and Expressions]
+- Fall 2019 MT1 Q3: You Again [Higher-Order Functions]
+- Spring 2021 MT1 Q4: Domain on the Range [Higher-Order Functions]
+- Fall 2021 MT1 Q1b: tik [Functions and Expressions]
