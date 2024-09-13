@@ -10,8 +10,8 @@ Download hw03.zip. Inside the archive, you will find a file called hw03.py, alon
 **Using Ok**: If you have any questions about using Ok, please refer to this guide.
 
 **Readings**: You might find the following references useful:
+- Section 1.7
 
-## Section 1.7
 **Grading**: Homework is graded based on correctness. Each incorrect problem will decrease the total score by one point. This homework is out of 2 points.
 
 ## Required Questions
