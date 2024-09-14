@@ -180,4 +180,4 @@ Use Ok to test your code:
 
     python3 ok -q eval_define
 
-### Check Your Score Locally[​](https://www.learncs.site/docs/curriculum-resource/cs61a/lab/lab10#check-your-score-locally "Direct link to Check Your Score Loc
+### Check Your Score Locally[​](https://www.learncs.site/docs/curriculum-resource/cs61a/lab/lab10#check-your-score-locally "Direct link to Check Your Score Locally")
