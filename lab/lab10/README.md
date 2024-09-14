@@ -181,3 +181,16 @@ Use Ok to test your code:
     python3 ok -q eval_define
 
 ### Check Your Score Locally[​](https://www.learncs.site/docs/curriculum-resource/cs61a/lab/lab10#check-your-score-locally "Direct link to Check Your Score Locally")
+-------------------------------------------------------------------------------------------------------------------
+
+You can locally check your score on each question of this assignment by running:
+
+```bash
+python3 ok --score
+```
+
+### Submit
+-------------------------------------------------------------------------------------------------------------
+
+Submit this assignment by uploading any files you've edited to the appropriate Gradescope assignment.
+
