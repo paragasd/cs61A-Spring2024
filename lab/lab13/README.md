@@ -39,32 +39,36 @@ A hexadecimal color code begins with `#` and is followed by exactly six hexadeci
 
 **Q:** `#[a-f0-9]{6}`  
 Choose the number of the correct choice:  
-0) A hexadecimal color code with 3 letters and 3 numbers  
-1) A hexadecimal color code that starts with letters and ends with numbers, like `#gg1234`  
-2) Any 6-digit hexadecimal color code, like `#fdb515`  
-3) Any hexadecimal color code with 0-6 digits  
+
+0. A hexadecimal color code with 3 letters and 3 numbers  
+1. A hexadecimal color code that starts with letters and ends with numbers, like `#gg1234`  
+2. Any 6-digit hexadecimal color code, like `#fdb515`  
+3. Any hexadecimal color code with 0-6 digits  
 
 **Q:** `(fizz(buzz|)|buzz)`  
 Choose the number of the correct choice:  
-0) Only `fizzbuzz` or `buzz`  
-1) Only `fizzbuzzbuzz`  
-2) Only `fizz`  
-3) Only `fizzbuzz`, `fizz`, and `buzz`  
-4) Only `fizzbuzz`  
+
+0. Only `fizzbuzz` or `buzz`  
+1. Only `fizzbuzzbuzz`  
+2. Only `fizz`  
+3. Only `fizzbuzz`, `fizz`, and `buzz`  
+4. Only `fizzbuzz`  
 
 **Q:** `[-+]?\d*\.?\d+`  
 Choose the number of the correct choice:  
-0) Only signed numbers like `+1000`, `-1.5`  
-1) Only signed or unsigned integers like `+1000`, `-33`  
-2) Signed or unsigned numbers like `+1000`, `-1.5`, `.051`  
-3) Only unsigned numbers like `0.051`  
+
+0. Only signed numbers like `+1000`, `-1.5`  
+1. Only signed or unsigned integers like `+1000`, `-33`  
+2. Signed or unsigned numbers like `+1000`, `-1.5`, `.051`  
+3. Only unsigned numbers like `0.051`  
 
 **Q:** `[1-9]+[05]+`  
 Choose the number of the correct choice:  
-0) Any positive number  
-1) Numbers that are both greater than 5 and divisible by 5 like `10`, `25`, `800`  
-2) Numbers that are divisible by 5 but do not have the digits `0` and `5` adjacent to each other as the last 2 digits  
-3) Numbers that are divisible by 5 like `5`, `20`, `6325`  
+
+0. Any positive number  
+1. Numbers that are both greater than 5 and divisible by 5 like `10`, `25`, `800`  
+2. Numbers that are divisible by 5 but do not have the digits `0` and `5` adjacent to each other as the last 2 digits  
+3. Numbers that are divisible by 5 like `5`, `20`, `6325`  
 
 ### Q2: Scientific Name
 ------------------------------------------------------------------------------------------------------
