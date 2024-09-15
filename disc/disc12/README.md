@@ -32,7 +32,12 @@ Lists[​](https://www.learncs.site/docs/curriculum-resource/cs61a/dis/disc12#li
 
 The two most common mutation operations for lists are item assignment and the `append` method.
 
-    >>> s = [1, 3, 4]>>> t = s  # A second name for the same list>>> t[0] = 2  # this changes the first element of the list to 2, affecting both s and t>>> s[2, 3, 4]>>> s.append(5)  # this adds 5 to the end of the list, affecting both s and t>>> t[2, 3, 4, 5]
+    >>> s = [1, 3, 4]
+    >>> t = s  # A second name for the same list
+    >>> t[0] = 2  # this changes the first element of the list to 2, affecting both s and t
+    >>> s[2, 3, 4]
+    >>> s.append(5)  # this adds 5 to the end of the list, affecting both s and t
+    >>> t[2, 3, 4, 5]
 
 There are many other list mutation methods:
 
@@ -72,7 +77,35 @@ You can make a new `Link` object by calling `Link`:
 *   `Link(4)` makes a linked list of length 1 containing 4.
 *   `Link(4, s)` makes a linked list that starts with 4 followed by the elements of linked list `s`.
 
-    class Link:    """A linked list is either a Link object or Link.empty    >>> s = Link(3, Link(4, Link(5)))    >>> s.rest    Link(4, Link(5))    >>> s.rest.rest.rest is Link.empty    True    >>> s.rest.first * 2    8    >>> print(s)    <3 4 5>    """    empty = ()    def __init__(self, first, rest=empty):        assert rest is Link.empty or isinstance(rest, Link)        self.first = first        self.rest = rest    def __repr__(self):        if self.rest:            rest_repr = ', ' + repr(self.rest)        else:            rest_repr = ''        return 'Link(' + repr(self.first) + rest_repr + ')'    def __str__(self):        string = '<'        while self.rest is not Link.empty:            string += str(self.first) + ' '            self = self.rest        return string + str(self.first) + '>'
+```python
+    class Link:
+        """A linked list is either a Link object or Link.empty
+        >>> s = Link(3, Link(4, Link(5)))
+        >>> s.rest    Link(4, Link(5))
+        >>> s.rest.rest.rest is Link.empty    True
+        >>> s.rest.first * 2    8
+        >>> print(s)    <3 4 5>
+        """
+        empty = ()
+        def __init__(self, first, rest=empty):
+            assert rest is Link.empty or isinstance(rest, Link)
+            self.first = first
+            self.rest = rest
+
+        def __repr__(self):
+            if self.rest:
+                rest_repr = ', ' + repr(self.rest)
+            else:
+                rest_repr = ''
+            return 'Link(' + repr(self.first) + rest_repr + ')'
+
+        def __str__(self):
+            string = '<'
+            while self.rest is not Link.empty:
+                string += str(self.first) + ' '
+                self = self.rest
+            return string + str(self.first) + '>'
+```
 
 ### Q2: Linear Sublists[​](https://www.learncs.site/docs/curriculum-resource/cs61a/dis/disc12#q2-linear-sublists "Direct link to Q2: Linear Sublists")
 
